@@ -1,0 +1,32 @@
+App\Entity\Measurement:
+    properties:
+        celsius:
+            - NotBlank: { message: 'Temperature should not be blank.' }
+            - Range:
+                  min: -100
+                  max: 40
+                  notInRangeMessage: 'Temperature must be between {{ min }} and {{ max }} degrees.'
+                  groups: [edit, create]
+        humidity:
+            - NotBlank: { message: 'Humidity should not be blank.' }
+            - Range:
+                  min: 0
+                  max: 100
+                  notInRangeMessage: 'Humidity must be between {{ min }}% and {{ max }}%.'
+                  groups: [edit, create]
+App\Entity\Location:
+    properties:
+        latitude:
+            - NotBlank: { message: 'Latitude should not be blank.' }
+            - Range:
+                  min: -90
+                  max: 90
+                  notInRangeMessage: 'Latitude must be between {{ min }} and {{ max }} degrees.'
+                  groups: [edit, create]
+        longitude:
+            - NotBlank: { message: 'Longitude should not be blank.' }
+            - Range:
+                  min: -180
+                  max: 180
+                  notInRangeMessage: 'Longitude must be between {{ min }} and {{ max }} degrees.'
+                  groups: [edit, create]
